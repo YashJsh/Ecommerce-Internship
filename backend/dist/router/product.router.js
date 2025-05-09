@@ -64,13 +64,11 @@ router.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function
             skip: skip,
             take: Limit
         });
-        console.log("products are : ", products);
         const totalCount = yield db_1.client.product.count({
             where: keywords.length > 0 ? {
                 OR: keywordConditions
             } : undefined,
         });
-        console.log("totalCount ", totalCount);
         const totalPages = Math.ceil(totalCount / Number(limit));
         res.status(200).json({
             message: "Products fetched successfully",

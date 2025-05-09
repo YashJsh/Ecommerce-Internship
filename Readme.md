@@ -2,7 +2,8 @@
 
 A full-stack e-commerce web application built for an internship project, featuring product submission, real-time listing, and search functionality.
 
-![Project Screenshot](/screenshots/app-preview.png) <!-- Add actual screenshot path -->
+![Add Product Page Preview](./screenshots/AddProduct.png)
+![All Products Page Preview](./screenshots/photo1.png)
 
 ## Features
 
@@ -49,33 +50,35 @@ A full-stack e-commerce web application built for an internship project, featuri
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/mini-ecommerce.git
+git clone https://github.com/YashJsh/Ecommerce-Internship.git
 cd mini-ecommerce
-
+```
 
 2. **Backend Setup**
 ```bash
 cd backend
 npm install
+```
 
 3. **Database Configuration**
 ```bash
 Create .env file in the backend folder 
 DATABASE_URL="postgresql://user:password@localhost:5432/ecommerce"
 PORT=5001
-
+```
 4. **Run Database Migrations**
 ```bash
 npx prisma migrate dev
-
+```
 5. **Frontend Setup**
 ```bash
 cd ../frontend
 npm install
-
+```
 6. **Create .env for frontend**
 ```bash
-
+VITE_BASE_URL = "http://localhost:5001/api"
+```
 
 7. **Run Application**
 ```
@@ -83,3 +86,4 @@ npm install
 npm run dev
 # Frontend (from frontend directory)
 npm run dev
+```

@@ -2,8 +2,11 @@ import axios from 'axios';
 import type { productSchema } from '../schema/ProductSchema';
 import type { z } from 'zod';
 
+const url = import.meta.env.VITE_BASE_URL;
+console.log(url);
+
 const axiosInstance = axios.create({
-    baseURL : 'http://localhost:5001/api'
+    baseURL : url
 })
 
 export interface ProductProps {
