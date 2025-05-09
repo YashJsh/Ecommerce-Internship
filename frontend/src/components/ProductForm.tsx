@@ -27,9 +27,11 @@ import {
 import "ldrs/react/LineSpinner.css";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ProductForm = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const form = useForm<ProductType>({
     resolver: zodResolver(productSchema),
@@ -49,6 +51,7 @@ const ProductForm = () => {
         description : "Product added successfully"
       });
       form.reset();
+      navigate('/');
     },
   });
 
@@ -97,7 +100,7 @@ const ProductForm = () => {
                 name="price"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Price ($)</FormLabel>
+                    <FormLabel>Price (₹)</FormLabel>
                     <FormControl>
                       <Input
                         type="number"
