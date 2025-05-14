@@ -1,6 +1,6 @@
 import { Router , Request, Response, RequestHandler} from "express";
 import { productSchema } from "../schema/product.schema";
-import { client } from "../client/db";
+import  client  from "../client/db";
 import { extractKeywords } from "../utils/searchHelper";
 import { Prisma } from "@prisma/client";
 

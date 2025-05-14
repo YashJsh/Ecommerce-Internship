@@ -8,18 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productRouter = void 0;
 const express_1 = require("express");
 const product_schema_1 = require("../schema/product.schema");
-const db_1 = require("../client/db");
+const db_1 = __importDefault(require("../client/db"));
 const searchHelper_1 = require("../utils/searchHelper");
 const router = (0, express_1.Router)();
 router.post('/product', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;
     const { name, description, price, image } = product_schema_1.productSchema.parse(body);
     const name_format = name.toLowerCase();
-    const product = yield db_1.client.product.create({
+    const product = yield db_1.default.product.create({
         data: {
             name: name_format,
             description,
@@ -54,7 +57,7 @@ router.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function
                 },
             },
         ]);
-        const products = yield db_1.client.product.findMany({
+        const products = yield db_1.default.product.findMany({
             where: keywords.length > 0 ? {
                 OR: keywordConditions,
             } : undefined,
@@ -64,7 +67,7 @@ router.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function
             skip: skip,
             take: Limit
         });
-        const totalCount = yield db_1.client.product.count({
+        const totalCount = yield db_1.default.product.count({
             where: keywords.length > 0 ? {
                 OR: keywordConditions
             } : undefined,

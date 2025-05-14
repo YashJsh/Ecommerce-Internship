@@ -3,8 +3,8 @@ import cors from "cors"
 import { productRouter } from './router/product.router';
 
 const app = express();
-
-const PORT = 5001;
+require('dotenv').config()
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
