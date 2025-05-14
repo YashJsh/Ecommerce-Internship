@@ -1,8 +1,10 @@
 import { Router , Request, Response, RequestHandler} from "express";
 import { productSchema } from "../schema/product.schema";
-import  client  from "../client/db";
+
 import { extractKeywords } from "../utils/searchHelper";
+import { client } from "../client/db"
 import { Prisma } from "@prisma/client";
+
 
 export interface productQuery{
     q? : string,
@@ -42,16 +44,20 @@ router.get('/products', async (req : Request, res : Response)=>{
     
     const keywordConditions: Prisma.ProductWhereInput[] = keywords.flatMap(keyword => [
       {
-        name: {
-          contains: keyword,
-          mode: 'insensitive',
-        },
-      },
-      {
-        description: {
-          contains: keyword,
-          mode: 'insensitive',
-        },
+        OR: [
+          {
+            name: {
+              contains: keyword,
+              mode: 'insensitive',
+            },
+          },
+          {
+            description: {
+              contains: keyword,
+              mode: 'insensitive',
+            },
+          },
+        ],
       },
     ]);
 

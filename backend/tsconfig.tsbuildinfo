@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/client/db.ts","./src/router/product.router.ts","./src/schema/product.schema.ts","./src/utils/searchhelper.ts"],"version":"5.7.3"}
+{"root":["./src/index.ts","./src/client/db.ts","./src/router/product.router.ts","./src/schema/product.schema.ts","./src/utils/searchhelper.ts"],"version":"5.8.3"}
