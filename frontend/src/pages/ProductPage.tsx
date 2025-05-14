@@ -47,7 +47,7 @@ const ProductPage = () => {
       )}
         {data && data.products.length === 0 && (
           <p className="text-slate-500 text-center mt-8">
-            No products found for this search query.
+            No products to show here
           </p>
         )}
 
