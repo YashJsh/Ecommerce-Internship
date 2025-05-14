@@ -10,8 +10,8 @@ export function Navbar() {
     const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-5 mx-auto">
-      <div className="container flex h-16 items-center cursor-pointer justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60  ">
+      <div className="container flex h-16 items-center cursor-pointer justify-between mx-auto ">
         <div className="flex items-center gap-2" onClick={()=>{
             navigate("/");
         }}>
